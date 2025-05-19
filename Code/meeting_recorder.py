@@ -21,3 +21,11 @@ class InterviewProcessor:
         
         # Validate API key
         self._validate_api_key()
+        
+    def _validate_api_key(self):
+        """Validate that the OpenAI API key is set"""
+        if not os.environ.get('OPENAI_API_KEY'):
+            print("Warning: OPENAI_API_KEY not found in environment variables.")
+            print("Please set your API key with: export OPENAI_API_KEY='your-api-key'")
+            
+    
