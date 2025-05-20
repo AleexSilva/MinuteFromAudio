@@ -65,3 +65,9 @@ class InterviewProcessor:
         except Exception as e:
             print(f"Error transcribing audio: {e}")
             return None
+    
+    def analyze_transcription(self, transcription):
+        """Analyze transcription to generate meeting minutes and summary"""
+        print("Analyzing transcription with LLM...")
+        
+        # Prompt for detailed minutes
