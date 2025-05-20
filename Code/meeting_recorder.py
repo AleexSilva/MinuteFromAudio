@@ -71,3 +71,31 @@ class InterviewProcessor:
         print("Analyzing transcription with LLM...")
         
         # Prompt for detailed minutes
+        minutes_prompt = """
+        You are an expert assistant helping to create detailed meeting minutes from an interview transcript.
+        This is a recruiting interview between a candidate and recruiter.
+        
+        Please extract and organize information into these sections:
+        1. ABOUT THE COMPANY: Details about the hiring company and any third party recruiters
+        2. ROLE/POSITION DETAILS: Specific job requirements, responsibilities, team structure
+        3. BENEFITS: Salary, perks, work environment, growth opportunities, etc.
+        4. CANDIDATE BACKGROUND: Brief professional history, skills, and experience
+        
+        Format the output as detailed meeting minutes highlighting key points of discussion.
+        Use clean, professional formatting with section headings, bullet points where appropriate.
+        """
+        
+        # Prompt for concise summary
+        summary_prompt = """
+        You are an expert assistant helping to create a concise summary from an interview transcript.
+        This is a recruiting interview between a candidate and recruiter.
+        
+        Please create a brief summary (maximum 500 words) that highlights:
+        1. ABOUT THE COMPANY: Key details about the hiring company and any third party recruiters
+        2. ROLE/POSITION DETAILS: Core responsibilities and requirements
+        3. BENEFITS: Most important benefits and perks
+        4. CANDIDATE BACKGROUND: Relevant highlights from the candidate's background
+        
+        Format the output as a concise executive summary focusing only on essential information.
+        """
+        
