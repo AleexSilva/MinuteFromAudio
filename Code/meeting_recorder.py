@@ -47,3 +47,21 @@ class InterviewProcessor:
         latest_file = max(matching_files, key=os.path.getmtime) 
         print(f"Found recording for today: {latest_file}")
         return latest_file
+    
+    def transcribe_audio(self, audio_file):
+        """Transcribe the audio file using OpenAI Whisper API"""
+        print(f"Transcribing audio file: {audio_file}")
+        
+        try:
+            with open(audio_file, "rb") as file:
+                transcription = self.client.audio.transcriptions.create(
+                    model="whisper-1",
+                    file=file,
+                    response_format="text"
+                )
+            
+            print(f"Transcription completed: {len(transcription)} characters")
+            return transcription
+        except Exception as e:
+            print(f"Error transcribing audio: {e}")
+            return None
