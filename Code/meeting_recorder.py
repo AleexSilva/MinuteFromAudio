@@ -137,3 +137,45 @@ class InterviewProcessor:
         if not os.path.exists(output_folder):
             os.makedirs(output_folder)
         
+        # HTML template
+        html_template = """<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>{title}</title>
+            <style>
+                body {{
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                    max-width: 800px;
+                    margin: 0 auto;
+                    padding: 20px;
+                }}
+                h1 {{
+                    color: #2c3e50;
+                    border-bottom: 1px solid #eee;
+                    padding-bottom: 10px;
+                }}
+                h2 {{
+                    color: #3498db;
+                    margin-top: 20px;
+                }}
+                .date {{
+                    color: #7f8c8d;
+                    font-style: italic;
+                }}
+                .content {{
+                    margin-top: 20px;
+                }}
+            </style>
+        </head>
+        <body>
+            <h1>{title}</h1>
+            <div class="date">Generated on {date}</div>
+            <div class="content">
+                {content}
+            </div>
+        </body>
+        </html>
+        """
