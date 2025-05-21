@@ -179,3 +179,13 @@ class InterviewProcessor:
         </body>
         </html>
         """
+
+        # Format date for display
+        display_date = datetime.datetime.now().strftime("%B %d, %Y")
+        
+        # Create minutes HTML
+        minutes_html = html_template.format(
+            title="Interview Minutes",
+            date=display_date,
+            content=content["minutes"].replace("\n", "<br>")
+        )
