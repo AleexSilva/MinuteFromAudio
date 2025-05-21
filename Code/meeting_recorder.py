@@ -206,3 +206,13 @@ class InterviewProcessor:
             
         with open(summary_path, "w") as f:
             f.write(summary_html)
+
+
+        print(f"Generated HTML files in {output_folder}:")
+        print(f"- Minutes: {minutes_path}")
+        print(f"- Summary: {summary_path}")
+        
+        return {
+            "minutes_path": minutes_path,
+            "summary_path": summary_path
+        }
