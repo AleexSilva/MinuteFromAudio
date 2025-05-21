@@ -189,3 +189,10 @@ class InterviewProcessor:
             date=display_date,
             content=content["minutes"].replace("\n", "<br>")
         )
+        
+        # Create summary HTML
+        summary_html = html_template.format(
+            title="Interview Summary",
+            date=display_date,
+            content=content["summary"].replace("\n", "<br>")
+        )
