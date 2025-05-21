@@ -250,3 +250,19 @@ class InterviewProcessor:
         print(f"Summary: {output_files['summary_path']}")
         
         return True
+
+def main():
+    print("Interview Recording Processor")
+    print("============================")
+    print("Automatically processing today's interview recording...")
+    
+    processor = InterviewProcessor()
+    result = processor.process_interview()
+    
+    if result:
+        print("\nProcessing completed successfully.")
+    else:
+        print("\nProcessing could not be completed. Please check the logs above for details.")
+
+if __name__ == "__main__":
+    main()
