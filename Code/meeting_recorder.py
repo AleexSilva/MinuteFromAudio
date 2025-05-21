@@ -98,4 +98,32 @@ class InterviewProcessor:
         
         Format the output as a concise executive summary focusing only on essential information.
         """
-        
+        try:
+            # Generate minutes
+            minutes_response = self.client.chat.completions.create(
+                model="gpt-4",
+                messages=[
+                    {"role": "system", "content": minutes_prompt},
+                    {"role": "user", "content": transcription}
+                ]
+            )
+            
+            # Generate summary
+            summary_response = self.client.chat.completions.create(
+                model="gpt-4",
+                messages=[
+                    {"role": "system", "content": summary_prompt},
+                    {"role": "user", "content": transcription}
+                ]
+            )
+            
+            minutes = minutes_response.choices[0].message.content
+            summary = summary_response.choices[0].message.content
+            
+            return {
+                "minutes": minutes,
+                "summary": summary
+            }
+        except Exception as e:
+            print(f"Error analyzing transcription: {e}")
+            return None
