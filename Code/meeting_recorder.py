@@ -127,3 +127,4 @@ class InterviewProcessor:
         except Exception as e:
             print(f"Error analyzing transcription: {e}")
             return None
+        
