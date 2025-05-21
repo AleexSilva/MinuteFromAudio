@@ -196,3 +196,13 @@ class InterviewProcessor:
             date=display_date,
             content=content["summary"].replace("\n", "<br>")
         )
+
+        # Write files
+        minutes_path = os.path.join(output_folder, "minutes.html")
+        summary_path = os.path.join(output_folder, "summary.html")
+        
+        with open(minutes_path, "w") as f:
+            f.write(minutes_html)
+            
+        with open(summary_path, "w") as f:
+            f.write(summary_html)
