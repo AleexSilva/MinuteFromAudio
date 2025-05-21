@@ -128,3 +128,12 @@ class InterviewProcessor:
             print(f"Error analyzing transcription: {e}")
             return None
         
+    def generate_html_files(self, content):
+        """Generate HTML files for minutes and summary"""
+        today_date = datetime.datetime.now().strftime("%d%m%Y")
+        output_folder = os.path.join(self.output_dir, f"daily-{today_date}")
+        
+        # Create output folder if it doesn't exist
+        if not os.path.exists(output_folder):
+            os.makedirs(output_folder)
+        
