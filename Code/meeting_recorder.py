@@ -216,3 +216,37 @@ class InterviewProcessor:
             "minutes_path": minutes_path,
             "summary_path": summary_path
         }
+        
+
+# Audio extraction method removed as it's no longer needed
+    
+    def process_interview(self):
+        """Main processing function"""
+        # Find today's recording
+        recording = self.find_todays_recording()
+        if not recording:
+            print("No recording found for today. Please make sure your recording filename starts with today's date in YYYY-MM-DD format.")
+            return False
+        
+        # MP3 file can be used directly - no conversion needed
+        
+        # Transcribe audio
+        transcription = self.transcribe_audio(recording)
+        if not transcription:
+            print("Transcription failed. Exiting.")
+            return False
+            
+        # Analyze transcription
+        analysis = self.analyze_transcription(transcription)
+        if not analysis:
+            print("Analysis failed. Exiting.")
+            return False
+            
+        # Generate HTML files
+        output_files = self.generate_html_files(analysis)
+        
+        print("\nProcessing complete!")
+        print(f"Minutes: {output_files['minutes_path']}")
+        print(f"Summary: {output_files['summary_path']}")
+        
+        return True
